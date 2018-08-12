@@ -1,0 +1,7 @@
+.mat-toolbar.mat-toolbar-single-row{
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.8901960784313725);
+    position: fixed;
+    z-index: 10;
+    background-color: rgba(227, 87, 44, 0.9);
+    color: white;
+}

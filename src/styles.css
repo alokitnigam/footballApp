@@ -1,1 +1,204 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700');
+body{
+    margin: 0;
+    padding: 0;
+}
+.f_8{
+    font-size: 8px !important;
+}
+.f_9{
+    font-size: 9px !important;
+}
+.f_10{
+    font-size: 10px !important;
+}
+.f_11{
+    font-size: 11px !important;
+}
+.f_12{
+    font-size: 12px !important;
+}
+.f_13{
+    font-size: 13px !important;
+}
+.f_14{
+    font-size: 14px !important;
+}
+.f_15{
+    font-size: 15px !important;
+}
+.f_16{
+    font-size: 16px !important;
+}
+.f_17{
+    font-size: 17px !important;
+}
+.f_18{
+    font-size: 18px !important;
+}
+.f_19{
+    font-size: 19px !important;
+}
+.f_20{
+    font-size: 20px !important;
+}
+.f_21{
+    font-size: 21px !important;
+}
+.f_22{
+    font-size: 22px !important;
+}
+.f_23{
+    font-size: 23px !important;
+}
+.f_24{
+    font-size: 24px !important;
+}
+.f_26{
+    font-size: 26px !important;
+}
+.f_28{
+    font-size: 28px !important;
+}
+.f_30{
+    font-size: 30px !important;
+}
+.f_32{
+    font-size: 32px !important;
+}
+.f_34{
+    font-size: 34px !important;
+}
+.f_36{
+    font-size: 36px !important;
+}
+.f_50{
+    font-size: 50px !important;
+}
+
+.fw_400{
+    font-weight: 400 !important;
+}
+.fw_500{
+    font-weight: 500 !important;
+}
+.fw_600{
+    font-weight: 600 !important;
+}
+.fw_700{
+    font-weight: 700 !important;
+}
+
+
+@media screen and (max-width: 660px) {
+    .fm_8{
+        font-size: 8px !important;
+    }
+    .fm_9{
+        font-size: 9px !important;
+    }
+    .fm_10{
+        font-size: 10px !important;
+    }
+    .fm_11{
+        font-size: 11px !important;
+    }
+    .fm_12{
+        font-size: 12px !important;
+    }
+    .fm_13{
+        font-size: 13px !important;
+    }
+    .fm_14{
+        font-size: 14px !important;
+    }
+    .fm_15{
+        font-size: 15px !important;
+    }
+    .fm_16{
+        font-size: 16px !important;
+    }
+    .fm_17{
+        font-size: 17px !important;
+    }
+    .fm_18{
+        font-size: 18px !important;
+    }
+    .fm_19{
+        font-size: 19px !important;
+    }
+    .fm_20{
+        font-size: 20px !important;
+    }
+    .fm_21{
+        font-size: 21px !important;
+    }
+    .fm_22{
+        font-size: 22px !important;
+    }
+    .fm_23{
+        font-size: 23px !important;
+    }
+    .fm_24{
+        font-size: 24px !important;
+    }
+    .fm_26{
+        font-size: 26px !important;
+    }
+    .fm_28{
+        font-size: 28px !important;
+    }
+    .fm_30{
+        font-size: 30px !important;
+    }
+    .fm_32{
+        font-size: 32px !important;
+    }
+    .fm_34{
+        font-size: 34px !important;
+    }
+    .fm_36{
+        font-size: 36px !important;
+    }
+    .fm_50{
+        font-size: 50px !important;
+    }
+}
+
+.padding-x{
+    padding: 0px 16px;
+}
+.mb-0{
+    margin-bottom: 0 !important;
+}
+
+.float-left{
+    float: left !important;
+}
+
+.float-right{
+    float: right !important;
+}
+.c_p{
+    cursor: pointer !important;
+}
+body{
+    background: url('/assets/716513.png') center;
+    background-attachment: fixed;
+    font-family: 'Open Sans', sans-serif !important; 
+    background-color: rgba(0, 0, 0, 0.011764705882352941);
+}
+.mx-auto{
+    margin: 0 auto !important;
+}
+.mx-auto{
+    margin: 0 auto !important;
+}
+.ml-auto{
+    margin-left: auto !important;
+}
+.mr-auto{
+    margin-right: auto !important;
+}

@@ -1,0 +1,35 @@
+.competition_card{
+    width: 20%;
+    padding: 10px;
+    margin: 24px auto;
+    border-bottom: 3px solid #3f51b5;
+}
+.card_wrapper{
+    display: flex;
+    flex-wrap: wrap;
+}
+mat-card-subtitle{
+    margin-bottom: 0;
+}
+.card_wrapper .mat-card-avatar{
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: white;
+}
+mat-card-content{
+    margin-top: 40px;
+}
+.mat-card-actions{
+    text-align: center;
+    margin-bottom: 0 !important;
+    margin-top: 35px;
+    /* position: absolute;
+    margin-left: -56px;
+    left: 50%;
+    bottom: 15px; */
+}
+.mat-card-actions button{
+    font-size: 12px;
+    line-height: 27px;
+}
