@@ -14,7 +14,7 @@ export class CompetitionsService{
     constructor(public http: HttpClient){
     }
 
-    baseUrl = 'http://api.football-data.org/v2/';
+    baseUrl = 'https://api.football-data.org/v2/';
 
     competitionData;
 

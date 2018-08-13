@@ -55,7 +55,7 @@ import { environment } from '../environments/environment';
     MatDividerModule,
     MatTableModule,
     MatBottomSheetModule,
-    ServiceWorkerModule.register('/footballApp/ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
   entryComponents: [BottomSheetComponent],
   providers: [],
