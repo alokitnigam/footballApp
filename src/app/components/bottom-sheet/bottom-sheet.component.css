@@ -1,0 +1,7 @@
+.score{
+    padding: 8px 13px;
+    border: 1px solid #80808063;
+    border-radius: 50%;
+    box-shadow: 0px 0px 2px #a5a5a5fa;
+    margin: 0 10px;
+}

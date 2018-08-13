@@ -12,6 +12,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -20,9 +21,12 @@ import { IntialSlicerPipe } from './pipes/intial-slicer.pipe';
 import { CompetitionLeagueComponent } from './components/competitions/competition-league/competition-league.component';
 import { BackgroundSetDirective } from './directives/background-set.directive';
 import { LoaderComponent } from './components/loader/loader.component';
-import { LoaderService } from './services/loader.service';
 import { AppRoutingModule } from './app.routing';
 import { ScoreClassDirective } from './directives/score-class.directive';
+import { LeagueTableComponent } from './components/league-table/league-table.component';
+import { BottomSheetComponent } from './components/bottom-sheet/bottom-sheet.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,9 @@ import { ScoreClassDirective } from './directives/score-class.directive';
     CompetitionLeagueComponent,
     BackgroundSetDirective,
     LoaderComponent,
-    ScoreClassDirective
+    ScoreClassDirective,
+    LeagueTableComponent,
+    BottomSheetComponent
   ],
   imports: [
     BrowserModule,
@@ -47,8 +53,11 @@ import { ScoreClassDirective } from './directives/score-class.directive';
     MatListModule,
     MatIconModule,
     MatDividerModule,
-    MatTableModule
+    MatTableModule,
+    MatBottomSheetModule,
+    ServiceWorkerModule.register('/footballApp/ngsw-worker.js', { enabled: environment.production })
   ],
+  entryComponents: [BottomSheetComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

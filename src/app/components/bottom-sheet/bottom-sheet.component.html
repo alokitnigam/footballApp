@@ -1,0 +1,55 @@
+<div class="matchDetailWrapper">
+    <mat-list>
+        <mat-list-item class="halftime">
+                <div class="mx-auto fw_700">{{bottomSheetData.data.utcDate | date}}</div>           
+        </mat-list-item>
+        <mat-list-item class="halftime mt-20p">
+                <div class="mx-auto fw_700">Full time</div>           
+        </mat-list-item>
+        <mat-list-item class="mt-20p">
+          <p class="mx-auto w-33p fw_700 f_16">{{bottomSheetData.data.homeTeam.name}} (H)</p>
+          <p class="mx-auto w-33p">
+            <strong class="score">{{bottomSheetData.data.score.fullTime.homeTeam}}</strong> 
+            <span class="f_10">VS</span> 
+            <strong class="score">{{bottomSheetData.data.score.fullTime.awayTeam}}</strong>
+          </p>
+          <p class="mx-auto fw_700 f_16 w-33p">{{bottomSheetData.data.awayTeam.name}} (A)</p>
+        </mat-list-item>
+        <div>
+            <mat-list-item class="halftime mt-20p">
+                    <div class="mx-auto fw_700">Half time</div>           
+            </mat-list-item>
+            <mat-list-item class="halftime mt-10p">
+                <div class="mx-auto fw_700">
+                    {{bottomSheetData.data.score.halfTime.homeTeam}} - {{bottomSheetData.data.score.halfTime.awayTeam}}
+                </div>           
+            </mat-list-item>
+        </div>
+        <div *ngIf="bottomSheetData.data.score.extraTime">
+            <mat-list-item class="halftime mt-20p">
+                    <div class="mx-auto fw_700">Extra time</div>           
+            </mat-list-item>
+            <mat-list-item class="halftime mt-10p">
+                <div class="mx-auto fw_700">
+                    {{bottomSheetData.data.score.extraTime.homeTeam}} - {{bottomSheetData.data.score.extraTime.awayTeam}}
+                </div>           
+            </mat-list-item>
+        </div>
+        <div *ngIf="bottomSheetData.data.score.penalties">
+            <mat-list-item class="halftime mt-20p">
+                    <div class="mx-auto fw_700">Penalties time</div>           
+            </mat-list-item>
+            <mat-list-item class="halftime mt-10p">
+                <div class="mx-auto fw_700">
+                    {{bottomSheetData.data.score.penalties.homeTeam}} - {{bottomSheetData.data.score.penalties.awayTeam}}
+                </div>           
+            </mat-list-item>
+        </div>
+        <mat-list-item class="halftime mt-20p">
+                <div class="mx-auto fw_700">Referees</div>           
+        </mat-list-item>
+        <mat-list-item>
+            <p class="mx-auto w-50 f_14" *ngFor="let refree of bottomSheetData.data.referees">{{refree.name}}</p>
+        </mat-list-item>
+      </mat-list>
+</div>

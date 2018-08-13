@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CompetitionsService } from '../competitions.service';
 import { LoaderService } from '../../../services/loader.service';
+import { MatBottomSheet } from '@angular/material';
+import { BottomSheetComponent } from '../../bottom-sheet/bottom-sheet.component';
 
 @Component({
   selector: 'app-competition-league',
@@ -11,46 +13,46 @@ import { LoaderService } from '../../../services/loader.service';
 export class CompetitionLeagueComponent implements OnInit {
 
   matches;
-  leagueTable = [];
-  
-  displayedColumns: string[] = ['position', 'teamLogo','team', 'played', 'won','lost', 'draw', 'pointes'];
-
+  competitionId;
   constructor(private activatedRoute: ActivatedRoute, 
               private router: Router,
               private competitionService: CompetitionsService,
-              private loaderService: LoaderService) { }
+              private loaderService: LoaderService,
+              public bottomSheet: MatBottomSheet) { }
 
-  ngOnInit() {
-    this.getMatches();
-    this.getLeagueTable();
+  ngOnInit() {    
+    this.competitionId = this.activatedRoute.snapshot.params['id'];   
+    let localCompetitionData = JSON.parse(localStorage.getItem('matchData')); 
+    if(localCompetitionData){
+      if(localCompetitionData.competition.id == this.competitionId){
+        this.matches = localCompetitionData;
+      }else{
+        this.getMatches();
+      }
+    }else{
+      this.getMatches();
+    }
   }
 
   getMatches(){
-    this.loaderService.loaderValue.emit(true);
-    this.competitionService.getMatches().subscribe(
+    this.loaderService.loaderValue.emit(true);    
+    this.competitionService.getMatches(this.competitionId).subscribe(
       (data)=>{
         this.loaderService.loaderValue.emit(false);
+        localStorage.setItem('matchData', JSON.stringify(data));
         this.matches = data;
         console.log(data);
       }
     )
   }
 
-  getLeagueTable(){
-    this.loaderService.loaderValue.emit(true);
-    this.competitionService.getLeagueTable().subscribe(
-      (data)=>{
-        this.loaderService.loaderValue.emit(false);
-        let dataArray = data;
-        for (let i = 0; i < data.standings.length; i++) {
-          const element = data.standings[i]['type'];
-          if(element === "TOTAL"){
-            this.leagueTable = data.standings[i].table;
-          }
-        }
-        console.log('main data', this.leagueTable);
-      }
-    )
+  seeMatchDetail(data){
+    let matchDetail = {
+      data: data,
+      type: 'matchDetail'
+    };
+    this.bottomSheet.open(BottomSheetComponent, {
+      data: matchDetail
+    });
   }
-
 }

@@ -185,10 +185,18 @@ body{
     cursor: pointer !important;
 }
 body{
-    background: url('/assets/716513.png') center;
+    background: url('/assets/football-2.png') center center;
     background-attachment: fixed;
     font-family: 'Open Sans', sans-serif !important; 
     background-color: rgba(0, 0, 0, 0.011764705882352941);
+}
+body::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(45, 45, 45, 0.17);
+    z-index: -1;
 }
 .mx-auto{
     margin: 0 auto !important;
@@ -201,4 +209,38 @@ body{
 }
 .mr-auto{
     margin-right: auto !important;
+}
+
+.w-33p{
+    width: 33% !important;
+}
+.w-28p{
+    width: 28% !important;
+}
+.w-16p{
+    width: 16% !important;
+}
+.text-center{
+    text-align: center !important;
+}
+.mt-10p{
+    margin-top: 10px !important;
+}
+.mb-10p{
+    margin-bottom: 10px !important;
+}
+.mt-20p{
+    margin-top: 20px !important;
+}
+.halftime{
+    height: 20px !important;
+}
+.w-50{
+    width: 50% !important;
+}
+.mat-bottom-sheet-container{
+    border-top: 3px solid rgba(76, 175, 80, 0.96) !important;
+}
+.text-white{
+    color: white !important;
 }

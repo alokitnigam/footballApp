@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { CompetitionsModel } from "./competitions.model";
 
@@ -14,18 +14,21 @@ export class CompetitionsService{
     constructor(public http: HttpClient){
     }
 
-    baseUrl = 'http://api.football-data.org/v2/'
+    baseUrl = 'http://api.football-data.org/v2/';
+
+    competitionData;
+
     
     getCompetitions(){
         return this.http.get<CompetitionsModel>(`${this.baseUrl}competitions/`, httpOptions);
     }
 
-    getMatches(){
-        return this.http.get<any>(`${this.baseUrl}competitions/${2021}/matches`, httpOptions);
+    getMatches(compId){
+        return this.http.get<any>(`${this.baseUrl}competitions/${compId}/matches`, httpOptions);
     }
 
-    getLeagueTable(){
-        return this.http.get<any>(`${this.baseUrl}competitions/${2021}/standings`, httpOptions);
+    getLeagueTable(compId){
+        return this.http.get<any>(`${this.baseUrl}competitions/${compId}/standings`, httpOptions);
     }
 
-}
+ }

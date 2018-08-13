@@ -1,89 +1,33 @@
 <div class="padding-x">
-    <h1 class="mb-0">
+    <h1 class="mb-0 text-white">
       {{matches?.competition.name}}
     </h1>
-    <p class="fw_600">{{matches?.competition.area.name}}</p>
+    <p class="fw_600 text-white">{{matches?.competition.area.name}}</p>
   </div>
 <div class="list_wrapper">
   <div class="scoring_wrapper">
       <mat-list>
           <mat-list-item  [ngClass]="{'mt-70': matches.matches[i-1]?.matchday !== matches.matches[i]?.matchday}" 
                           *ngFor="let match of matches?.matches; let i = index;">
-            <div class="matchday fw_700 f_20" *ngIf="matches.matches[i-1]?.matchday !== matches.matches[i]?.matchday">
-              Matchday {{matches.matches[i]?.matchday}}
+            <div class="matchday fw_700 f_20 text-white" *ngIf="matches.matches[i-1]?.matchday !== matches.matches[i]?.matchday">
+              Matchday {{matches.matches[i]?.matchday}} 
             </div>
-            <p class="mx-auto w-33p fw_700 f_16">{{match?.homeTeam.name}} (H)</p>
-            <p class="mx-auto w-33p">
+            <div class="w-16p"><u>{{match.utcDate | date}}</u></div>
+            <p class="mx-auto w-28p fw_700 f_16">{{match?.homeTeam.name}}</p>
+            <p class="mx-auto w-28p">
               <strong [ngClass]="{'score': match?.score.winner}">{{match?.score.fullTime.homeTeam}}</strong> 
               <span class="f_10">VS</span> 
               <strong [ngClass]="{'score': match?.score.winner}">{{match?.score.fullTime.awayTeam}}</strong>
             </p>
-            <p class="mx-auto fw_700 f_16 w-33p">{{match?.awayTeam.name}} (A)</p>
+            <p class="mx-auto fw_700 f_16 w-28p">{{match?.awayTeam.name}}</p>
             <div class="button-row">
-                <button [disabled]="!match?.score.winner" mat-raised-button>See Detail</button>
+                <button [disabled]="!match?.score.winner" (click)="seeMatchDetail(match)" mat-raised-button>See Detail</button>
             </div>
           </mat-list-item>
         </mat-list>
   </div> 
   <div class="table_wrapper">
-      <table mat-table [dataSource]="leagueTable" class="mat-elevation-z8">
-
-          <!--- Note that these columns can be defined in any order.
-                The actual rendered columns are set as a property on the row definition" -->
-        
-          <!-- Position Column -->
-          <ng-container matColumnDef="position">
-            <th mat-header-cell *matHeaderCellDef> Sr. </th>
-            <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-          </ng-container>
-        
-          <!-- Name Column -->
-          <ng-container matColumnDef="teamLogo">
-            <th mat-header-cell *matHeaderCellDef> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>
-            <td mat-cell *matCellDef="let element">
-               <img width="32" 
-                    height="32" 
-                    class="img_size" 
-                    src="{{element.team.crestUrl}}" 
-                    onError="this.src='./assets/soccer-ball.png'"> 
-            </td>
-          </ng-container>
-
-          <ng-container matColumnDef="team">
-            <th mat-header-cell *matHeaderCellDef> Team </th>
-            <td mat-cell *matCellDef="let element"> {{element.team.name}} </td>
-          </ng-container>
-        
-          <!-- Weight Column -->
-          <ng-container matColumnDef="played">
-            <th mat-header-cell *matHeaderCellDef> Played </th>
-            <td mat-cell *matCellDef="let element"> {{element.playedGames}} </td>
-          </ng-container>
-        
-          <!-- Symbol Column -->
-          <ng-container matColumnDef="won">
-            <th mat-header-cell *matHeaderCellDef> Won </th>
-            <td mat-cell *matCellDef="let element">{{element.won}}</td>
-          </ng-container>
-
-          <ng-container matColumnDef="lost">
-            <th mat-header-cell *matHeaderCellDef> Lost </th>
-            <td mat-cell *matCellDef="let element">{{element.lost}}</td>
-          </ng-container>
-
-          <ng-container matColumnDef="draw">
-            <th mat-header-cell *matHeaderCellDef> Draw </th>
-            <td mat-cell *matCellDef="let element">{{element.draw}}</td>
-          </ng-container>
-
-          <ng-container matColumnDef="pointes">
-            <th mat-header-cell *matHeaderCellDef> Points </th>
-            <td mat-cell *matCellDef="let element">{{element.points}}</td>
-          </ng-container>
-        
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
+     <app-league-table [compID]="competitionId"></app-league-table>
   </div>
 </div>
 

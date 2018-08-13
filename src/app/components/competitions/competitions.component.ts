@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { CompetitionsService } from './competitions.service';
-import { CompetitionsModel } from './competitions.model';
-import * as _ from 'lodash';
 import { LoaderService } from '../../services/loader.service';
-import { Router, ActivatedRoute } from '../../../../node_modules/@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { MatBottomSheet } from '@angular/material';
+import { BottomSheetComponent } from '../bottom-sheet/bottom-sheet.component';
 
 @Component({
   selector: 'app-competitions',
@@ -13,21 +13,28 @@ import { Router, ActivatedRoute } from '../../../../node_modules/@angular/router
 })
 export class CompetitionsComponent implements OnInit {
 
+  competitions;
+
   constructor(public competitionsService: CompetitionsService, 
               private loaderService: LoaderService,
               private router: Router,
-              private activatedRoute: ActivatedRoute) { 
+              private activatedRoute: ActivatedRoute,
+              public bottomSheet: MatBottomSheet) { 
   
   }
-
-  competitions;
   
-  freeId = ['2021','2055', '2013', '2016', '2001', '2018', '2015', '2002', '2019', '2003', '2017', '2014', '2000']
+  freeId = ['2021','2055', '2013', '2016', '2001', '2018', '2015', '2002', '2019', '2003', '2017', '2014', '2000'];
 
 
   ngOnInit() {
-    this.getCompetitions();
+    let localCompetitionsData = JSON.parse(localStorage.getItem('competitionsData'));
+    if(localCompetitionsData){
+      this.competitions = localCompetitionsData;
+    }else{
+      this.getCompetitions();
+    }
   }
+
 
   getCompetitions(){
     this.loaderService.loaderValue.emit(true);
@@ -46,6 +53,7 @@ export class CompetitionsComponent implements OnInit {
           }  
         })     
         this.competitions = freeComp;
+        localStorage.setItem('competitionsData', JSON.stringify(this.competitions))
       }
     )
   }
@@ -54,5 +62,15 @@ export class CompetitionsComponent implements OnInit {
     this.router.navigate(['', `${competitionId}`, 'matches'], {
       relativeTo: this.activatedRoute
     });
+  }
+
+  openLeagueTable(competitionId){
+    let dataObj = {
+      id: competitionId,
+      type: 'table'
+    }
+    this.bottomSheet.open(BottomSheetComponent, {
+      data: dataObj
+    })
   }
 }
