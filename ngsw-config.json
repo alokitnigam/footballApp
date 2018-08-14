@@ -24,40 +24,5 @@
         "/assets/**"
       ]
     }
-  }],
-  "dataGroups": [
-    {
-      "name": "getCompetitions",
-      "urls": [
-        "https://api.football-data.org/v2/competitions"
-      ],
-      "cacheConfig": {
-        "maxSize": 5,
-        "maxAge": "365d",
-        "strategy": "performance"
-      }
-    },
-    {
-      "name": "get",
-      "urls": [
-        "https://api.football-data.org/v2/competitions/*/matches"
-      ],
-      "cacheConfig":{
-        "maxSize": 12,
-        "maxAge": "10m",
-        "strategy": "performance"
-      }
-    },
-    {
-      "name": "get",
-      "urls": [
-        "https://api.football-data.org/v2/competitions/*/standings"
-      ],
-      "cacheConfig":{
-        "maxSize": 12,
-        "maxAge": "12h",
-        "strategy": "performance"
-      }
-    } 
-  ]
+  }]
 }
