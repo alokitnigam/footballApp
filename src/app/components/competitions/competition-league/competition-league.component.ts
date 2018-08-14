@@ -28,16 +28,7 @@ export class CompetitionLeagueComponent implements OnInit {
 
   ngOnInit() {    
     this.competitionId = this.activatedRoute.snapshot.params['id'];   
-    let localCompetitionData = JSON.parse(localStorage.getItem('matchData')); 
-    if(localCompetitionData){
-      if(localCompetitionData.competition.id == this.competitionId){
-        this.matches = localCompetitionData;
-      }else{
-        this.getMatches();
-      }
-    }else{
-      this.getMatches();
-    }
+    this.getMatches();
   }
 
   getMatches(){
@@ -45,7 +36,6 @@ export class CompetitionLeagueComponent implements OnInit {
     this.competitionService.getMatches(this.competitionId).subscribe(
       (data)=>{
         this.loaderService.loaderValue.emit(false);
-        localStorage.setItem('matchData', JSON.stringify(data));
         this.matches = data;
         console.log(data);
       },

@@ -31,12 +31,7 @@ export class CompetitionsComponent implements OnInit {
 
 
   ngOnInit() {
-    let localCompetitionsData = JSON.parse(localStorage.getItem('competitionsData'));
-    if(localCompetitionsData){
-      this.competitions = localCompetitionsData;
-    }else{
-      this.getCompetitions();
-    }
+    this.getCompetitions();
   }
 
 
@@ -57,7 +52,6 @@ export class CompetitionsComponent implements OnInit {
           }  
         })     
         this.competitions = freeComp;
-        localStorage.setItem('competitionsData', JSON.stringify(this.competitions))
       },
       (error)=>{
         this.error = error.error;

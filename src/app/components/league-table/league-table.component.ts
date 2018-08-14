@@ -21,17 +21,7 @@ export class LeagueTableComponent implements OnInit {
               private loaderService: LoaderService) { }
 
   ngOnInit() {
-    let localLeagueTable = JSON.parse(localStorage.getItem('leagueTable'));
-    console.log('localLeagueTable', localLeagueTable);
-    if(localLeagueTable){
-      if(localLeagueTable.compId == this.compID){
-        this.leagueTable = localLeagueTable.leagueTableData;
-      }else{
-        this.getLeagueTable();
-      }
-    }else{
-      this.getLeagueTable();
-    }
+    this.getLeagueTable();
   }
 
   getLeagueTable(){
@@ -50,7 +40,6 @@ export class LeagueTableComponent implements OnInit {
           leagueTableData: this.leagueTable,
           compId: data.competition.id
         }
-        localStorage.setItem('leagueTable', JSON.stringify(leagueTableObj))
       },
       (error)=>{
         // this.error = error.r;
