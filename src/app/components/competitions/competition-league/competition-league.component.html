@@ -1,12 +1,12 @@
 <div class="padding-x">
-    <h1 class="mb-0 text-white">
-      {{matches?.competition.name}}
+    <h1 class="mb-0 text-white league_heading">
+      {{matches?.competition.name}} 
     </h1>
-    <p class="fw_600 text-white">{{matches?.competition.area.name}}</p>
+    <p class="fw_600 text-white league_sub_heading">{{matches?.competition.area.name}}</p>
   </div>
 <div class="list_wrapper">
   <div class="scoring_wrapper">
-      <mat-list>
+      <mat-list class="desktop">
           <mat-list-item  [ngClass]="{'mt-70': matches.matches[i-1]?.matchday !== matches.matches[i]?.matchday}" 
                           *ngFor="let match of matches?.matches; let i = index;">
             <div class="matchday fw_700 f_20 text-white" *ngIf="matches.matches[i-1]?.matchday !== matches.matches[i]?.matchday">
@@ -24,6 +24,27 @@
                 <button [disabled]="!match?.score.winner" (click)="seeMatchDetail(match)" mat-raised-button>See Detail</button>
             </div>
           </mat-list-item>
+        </mat-list>
+      <mat-list class="mobile">
+          <mat-card *ngFor="let match of matches?.matches; let i = index;"
+                    class="first_card"
+                    [ngClass]="{'mt-60': matches.matches[i-1]?.matchday !== matches.matches[i]?.matchday}">
+              <div class="matchday fw_700 f_20 text-white" *ngIf="matches.matches[i-1]?.matchday !== matches.matches[i]?.matchday">
+                Matchday {{matches.matches[i]?.matchday}} 
+              </div>
+            <div class="d-flex fm_12">
+              <p class="w-33p text-center fw_700">{{match?.homeTeam.name}}</p>
+              <p class="w-33p text-center"> 
+                <strong [ngClass]="{'score': match?.score.winner}">{{match?.score.fullTime.homeTeam}}</strong> 
+                <span class="f_10">VS</span> 
+                <strong [ngClass]="{'score': match?.score.winner}">{{match?.score.fullTime.awayTeam}}</strong>
+              </p>
+              <p class="w-33p text-center fw_700">{{match?.awayTeam.name}}</p>
+            </div>
+            <div class="text-center see_detail mt-6">
+                <button [disabled]="!match?.score.winner" (click)="seeMatchDetail(match)" mat-raised-button>See Detail</button>
+            </div>
+          </mat-card>
         </mat-list>
   </div> 
   <div class="table_wrapper">

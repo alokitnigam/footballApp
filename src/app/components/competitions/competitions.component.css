@@ -1,7 +1,11 @@
 .competition_card{
+    background-image: url('/assets/card-bg.png');
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: right;
     width: 20%;
     padding: 10px;
-    margin: 24px auto;
+    margin: 24px auto 24px 24px;
     border-bottom: 3px solid rgba(76, 175, 80, 0.96);
 }
 .card_wrapper{
@@ -23,7 +27,7 @@ mat-card-content{
 .mat-card-actions{
     text-align: center;
     margin-bottom: 0 !important;
-    margin-top: 35px;
+    margin-top: 20px;
     /* position: absolute;
     margin-left: -56px;
     left: 50%;
@@ -34,3 +38,4 @@ mat-card-content{
     line-height: 27px;
     background-color: rgba(76, 175, 80, 0.96) !important;
 }
+

@@ -7,13 +7,13 @@
                 <div class="mx-auto fw_700">Full time</div>           
         </mat-list-item>
         <mat-list-item class="mt-20p">
-          <p class="mx-auto w-33p fw_700 f_16">{{bottomSheetData.data.homeTeam.name}} (H)</p>
+          <p class="mx-auto w-33p fw_700 f_16 fm_12">{{bottomSheetData.data.homeTeam.name}}</p>
           <p class="mx-auto w-33p">
             <strong class="score">{{bottomSheetData.data.score.fullTime.homeTeam}}</strong> 
             <span class="f_10">VS</span> 
             <strong class="score">{{bottomSheetData.data.score.fullTime.awayTeam}}</strong>
           </p>
-          <p class="mx-auto fw_700 f_16 w-33p">{{bottomSheetData.data.awayTeam.name}} (A)</p>
+          <p class="mx-auto fw_700 f_16 fm_12 w-33p">{{bottomSheetData.data.awayTeam.name}}</p>
         </mat-list-item>
         <div>
             <mat-list-item class="halftime mt-20p">
@@ -49,7 +49,7 @@
                 <div class="mx-auto fw_700">Referees</div>           
         </mat-list-item>
         <mat-list-item>
-            <p class="mx-auto w-50 f_14" *ngFor="let refree of bottomSheetData.data.referees">{{refree.name}}</p>
+            <p class="mx-auto w-50 f_14 refree_text" *ngFor="let refree of bottomSheetData.data.referees">{{refree.name}}</p>
         </mat-list-item>
       </mat-list>
 </div>

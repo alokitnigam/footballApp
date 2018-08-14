@@ -10,10 +10,6 @@ export class ScoreClassDirective {
   }
 
   ngOnInit() {
-    console.log(this.elementRef.nativeElement.innerText);
-    // if(this.elementRef.nativeElement.innerText.length > 0){
-    //   this.renderer.addClass(this.elementRef.nativeElement, 'score');
-    // }
   }
 
 }

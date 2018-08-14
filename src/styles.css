@@ -184,6 +184,9 @@ body{
 .c_p{
     cursor: pointer !important;
 }
+.mt-40{
+    margin-top: 40px !important;    
+}
 body{
     background: url('/assets/football-2.png') center center;
     background-attachment: fixed;
@@ -192,7 +195,7 @@ body{
 }
 body::before{
     content: "";
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     background: rgba(45, 45, 45, 0.17);
@@ -232,6 +235,12 @@ body::before{
 .mt-20p{
     margin-top: 20px !important;
 }
+.mt-20{
+    margin-top: 20px !important;
+}
+.mt-60{
+    margin-top: 60px !important;
+}
 .halftime{
     height: 20px !important;
 }
@@ -243,4 +252,96 @@ body::before{
 }
 .text-white{
     color: white !important;
+}
+.mt-6{
+    margin-top: 6px !important;
+}
+@media (max-width: 576px) {
+    body .competition_card{
+        width: 80% !important;
+        margin: 0px auto 16px 24px !important;
+    }
+
+    .competition_card .mat-card-actions{
+        margin-top: 8px !important;
+    }
+    .league_sub_heading{
+        font-size: 12px;
+        margin-top: 0;
+    }
+    .league_heading{
+        font-size: 18px;
+        margin-top: 0;
+    }
+    body .scoring_wrapper{
+        width: 100% !important;
+        order: 2 !important;
+    }
+    .table_wrapper{
+        width: 98% !important;
+        margin-top: 78px !important;
+        margin: 0 auto !important;
+        order: 1 !important;
+    }
+    .desktop{
+        display: none !important;
+    }
+    .mobile{
+        display: unset !important;
+    }
+    .score {
+        padding: 2px 6px !important;
+        font-size: 14px !important;
+    }
+    .d-flex{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .mobile .mat-card {
+        padding: 6px 0px 10px 0px !important;
+        margin-bottom: 12px !important;
+        margin-left: 6px !important;
+        margin-right: 6px !important;
+    }
+ 
+    .see_detail .mat-raised-button{
+        line-height: 26px !important;
+        font-size: 12px !important;
+    }
+    body {
+        background: url(/assets/football-2.png) 50% top !important;
+    }
+    .mt-20p {
+        margin-top: 4px !important;
+    }
+    .mat-bottom-sheet-container{
+        padding: 8px 8px !important;
+    }
+    .matchDetailWrapper mat-list-item{
+        font-size: 12px !important; 
+    }
+    .refree_text{
+        font-size: 10px !important;
+        text-align: center !important;
+    }
+    .mx-auto.w-33p.fw_700.f_16.fm_12{
+        text-align: center !important;
+    }
+    .scoring_wrapper .matchday{
+        margin-right: -57px !important;
+        top: -35px !important;
+        right: 50% !important;
+        left: unset !important;
+        font-size: 14px !important;
+        background: #ffffff !important;
+        padding: 4px 12px !important;
+        color: #333333 !important;
+    }
+}
+
+.desktop{
+    display: unset;
+}
+.mobile{
+    display: none;
 }
