@@ -1,6 +1,6 @@
 <div class="padding-x">
     <h1 class="mb-0 text-white league_heading">
-      {{matches?.competition.name}} <div class="mobile"><button  mat-raised-button class="float-right" (click)="seeMatches()">See Matches</button></div>
+      {{matches?.competition.name}} <div *ngIf="matches && competitionId" class="mobile"><button  mat-raised-button class="float-right" (click)="seeMatches()">See Matches</button></div>
     </h1>
     <p class="fw_600 text-white league_sub_heading">{{matches?.competition.area.name}}</p>
   </div>
