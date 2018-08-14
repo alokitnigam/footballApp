@@ -10,3 +10,6 @@
         </mat-card-actions>
     </mat-card>
 </div>
+<div *ngIf="error" class="text-red fw_700 text-center mt-10">
+    {{this.error.error}}
+  </div>

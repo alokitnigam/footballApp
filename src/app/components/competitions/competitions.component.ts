@@ -14,6 +14,10 @@ import { BottomSheetComponent } from '../bottom-sheet/bottom-sheet.component';
 export class CompetitionsComponent implements OnInit {
 
   competitions;
+  error: {
+    error: any,
+    message: string,
+  }
 
   constructor(public competitionsService: CompetitionsService, 
               private loaderService: LoaderService,
@@ -54,6 +58,10 @@ export class CompetitionsComponent implements OnInit {
         })     
         this.competitions = freeComp;
         localStorage.setItem('competitionsData', JSON.stringify(this.competitions))
+      },
+      (error)=>{
+        this.error = error.error;
+        console.log(error);
       }
     )
   }

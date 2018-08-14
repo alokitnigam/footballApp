@@ -11,6 +11,10 @@ export class LeagueTableComponent implements OnInit {
 
   displayedColumns: string[] = ['position', 'teamLogo','team', 'played', 'won','lost', 'draw', 'pointes'];
   leagueTable: any;
+  error: {
+    error: any,
+    message: string,
+  };
   @Input('compID') compID;
 
   constructor(private competitionService: CompetitionsService,
@@ -46,8 +50,13 @@ export class LeagueTableComponent implements OnInit {
           leagueTableData: this.leagueTable,
           compId: data.competition.id
         }
-
         localStorage.setItem('leagueTable', JSON.stringify(leagueTableObj))
+      },
+      (error)=>{
+        // this.error = error.r;
+        this.loaderService.loaderValue.emit(false);
+        console.log('Ye error hai bhai', error.error);
+        this.error = error.error;
       }
     )
   }

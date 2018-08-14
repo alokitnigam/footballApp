@@ -49,3 +49,6 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+<div *ngIf="error" class="text-red fw_700 text-center mt-10">
+  {{this.error.message}}
+</div>

@@ -1,3 +1,6 @@
+<div *ngIf="error" class="text-red fw_700 text-center mt-10">
+  {{this.error.message}}
+</div>
 <div class="padding-x">
     <h1 class="mb-0 text-white league_heading">
       {{matches?.competition.name}} <div *ngIf="matches && competitionId" class="mobile"><button  mat-raised-button class="float-right" (click)="seeMatches()">See Matches</button></div>

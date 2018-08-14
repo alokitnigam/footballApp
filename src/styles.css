@@ -345,3 +345,6 @@ body::before{
 .mobile{
     display: none;
 }
+.text-red{
+    color: #c10000 !important;
+}

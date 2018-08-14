@@ -14,6 +14,10 @@ export class CompetitionLeagueComponent implements OnInit {
 
   matches;
   competitionId;
+  error: {
+    error: any,
+    message: string,
+  };
   @ViewChild('scoring') scoring : ElementRef;
 
   constructor(private activatedRoute: ActivatedRoute, 
@@ -44,6 +48,9 @@ export class CompetitionLeagueComponent implements OnInit {
         localStorage.setItem('matchData', JSON.stringify(data));
         this.matches = data;
         console.log(data);
+      },
+      (error)=>{
+        this.error = error.error;
       }
     )
   }
