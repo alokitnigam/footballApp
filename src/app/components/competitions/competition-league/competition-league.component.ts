@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CompetitionsService } from '../competitions.service';
 import { LoaderService } from '../../../services/loader.service';
@@ -14,6 +14,8 @@ export class CompetitionLeagueComponent implements OnInit {
 
   matches;
   competitionId;
+  @ViewChild('scoring') scoring : ElementRef;
+
   constructor(private activatedRoute: ActivatedRoute, 
               private router: Router,
               private competitionService: CompetitionsService,
@@ -54,5 +56,9 @@ export class CompetitionLeagueComponent implements OnInit {
     this.bottomSheet.open(BottomSheetComponent, {
       data: matchDetail
     });
+  }
+
+  seeMatches(){
+   this.scoring.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' })
   }
 }

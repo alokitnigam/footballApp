@@ -1,11 +1,11 @@
 <div class="padding-x">
     <h1 class="mb-0 text-white league_heading">
-      {{matches?.competition.name}} 
+      {{matches?.competition.name}} <div class="mobile"><button  mat-raised-button class="float-right" (click)="seeMatches()">See Matches</button></div>
     </h1>
     <p class="fw_600 text-white league_sub_heading">{{matches?.competition.area.name}}</p>
   </div>
 <div class="list_wrapper">
-  <div class="scoring_wrapper">
+  <div #scoring class="scoring_wrapper" id="scoring">
       <mat-list class="desktop">
           <mat-list-item  [ngClass]="{'mt-70': matches.matches[i-1]?.matchday !== matches.matches[i]?.matchday}" 
                           *ngFor="let match of matches?.matches; let i = index;">
